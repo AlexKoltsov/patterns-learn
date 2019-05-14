@@ -1,5 +1,6 @@
 package com.learn.patterns.creational.builder.cars;
 
+import com.learn.patterns.creational.builder.builders.CarSpecificBuilder;
 import com.learn.patterns.creational.builder.components.Engine;
 import com.learn.patterns.creational.builder.components.GPSNavigator;
 import com.learn.patterns.creational.builder.components.Transmission;
@@ -14,8 +15,8 @@ public class Manual {
     private final TripComputer tripComputer;
     private final GPSNavigator gpsNavigator;
 
-    public Manual(Type type, int seats, Engine engine, Transmission transmission,
-                  TripComputer tripComputer, GPSNavigator gpsNavigator) {
+    private Manual(Type type, int seats, Engine engine, Transmission transmission,
+                   TripComputer tripComputer, GPSNavigator gpsNavigator) {
         this.type = type;
         this.seats = seats;
         this.engine = engine;
@@ -41,5 +42,55 @@ public class Manual {
             info += "GPS Navigator: N/A" + "\n";
         }
         return info;
+    }
+
+    public static class ManualBuilder implements CarSpecificBuilder {
+
+        private Type type;
+        private int seats;
+        private Engine engine;
+        private Transmission transmission;
+        private TripComputer tripComputer;
+        private GPSNavigator gpsNavigator;
+
+        @Override
+        public ManualBuilder setType(Type type) {
+            this.type = type;
+            return this;
+        }
+
+        @Override
+        public ManualBuilder setSeats(int seats) {
+            this.seats = seats;
+            return this;
+        }
+
+        @Override
+        public ManualBuilder setEngine(Engine engine) {
+            this.engine = engine;
+            return this;
+        }
+
+        @Override
+        public ManualBuilder setTransmission(Transmission transmission) {
+            this.transmission = transmission;
+            return this;
+        }
+
+        @Override
+        public ManualBuilder setTripComputer(TripComputer tripComputer) {
+            this.tripComputer = tripComputer;
+            return this;
+        }
+
+        @Override
+        public ManualBuilder setGpsNavigator(GPSNavigator gpsNavigator) {
+            this.gpsNavigator = gpsNavigator;
+            return this;
+        }
+
+        public Manual build() {
+            return new Manual(type, seats, engine, transmission, tripComputer, gpsNavigator);
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.learn.patterns.creational.builder.cars;
 
+import com.learn.patterns.creational.builder.builders.CarSpecificBuilder;
 import com.learn.patterns.creational.builder.components.Engine;
 import com.learn.patterns.creational.builder.components.GPSNavigator;
 import com.learn.patterns.creational.builder.components.Transmission;
@@ -13,21 +14,21 @@ public class Car {
     private final Transmission transmission;
     private final TripComputer tripComputer;
     private final GPSNavigator gpsNavigator;
-    private double fuel = 0;
+    private double fuel;
 
-    public Car(Type type, int seats, Engine engine, Transmission transmission,
-               TripComputer tripComputer, GPSNavigator gpsNavigator) {
+    private Car(Type type, int seats, Engine engine, Transmission transmission,
+                TripComputer tripComputer, GPSNavigator gpsNavigator, double fuel) {
         this.type = type;
         this.seats = seats;
         this.engine = engine;
         this.transmission = transmission;
         this.tripComputer = tripComputer;
         this.gpsNavigator = gpsNavigator;
+        this.fuel = fuel;
     }
 
-    public Car setFuel(double fuel) {
+    public void setFuel(double fuel) {
         this.fuel = fuel;
-        return this;
     }
 
     public Type getType() {
@@ -56,5 +57,61 @@ public class Car {
 
     public double getFuel() {
         return fuel;
+    }
+
+    public static class CarBuilder implements CarSpecificBuilder {
+
+        private Type type;
+        private int seats;
+        private Engine engine;
+        private Transmission transmission;
+        private TripComputer tripComputer;
+        private GPSNavigator gpsNavigator;
+        private double fuel = 0;
+
+        @Override
+        public CarBuilder setType(Type type) {
+            this.type = type;
+            return this;
+        }
+
+        @Override
+        public CarBuilder setSeats(int seats) {
+            this.seats = seats;
+            return this;
+        }
+
+        @Override
+        public CarBuilder setEngine(Engine engine) {
+            this.engine = engine;
+            return this;
+        }
+
+        @Override
+        public CarBuilder setTransmission(Transmission transmission) {
+            this.transmission = transmission;
+            return this;
+        }
+
+        @Override
+        public CarBuilder setTripComputer(TripComputer tripComputer) {
+            this.tripComputer = tripComputer;
+            return this;
+        }
+
+        @Override
+        public CarBuilder setGpsNavigator(GPSNavigator gpsNavigator) {
+            this.gpsNavigator = gpsNavigator;
+            return this;
+        }
+
+        public CarBuilder setFuel(double fuel) {
+            this.fuel = fuel;
+            return this;
+        }
+
+        public Car build() {
+            return new Car(type, seats, engine, transmission, tripComputer, gpsNavigator, fuel);
+        }
     }
 }

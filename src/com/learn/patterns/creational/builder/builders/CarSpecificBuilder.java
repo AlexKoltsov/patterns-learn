@@ -6,17 +6,17 @@ import com.learn.patterns.creational.builder.components.GPSNavigator;
 import com.learn.patterns.creational.builder.components.Transmission;
 import com.learn.patterns.creational.builder.components.TripComputer;
 
-public interface Builder {
+public interface CarSpecificBuilder {
 
-    void setType(Type type);
+    CarSpecificBuilder setType(Type type);
 
-    void setSeats(int seats);
+    CarSpecificBuilder setSeats(int seats);
 
-    void setEngine(Engine engine);
+    CarSpecificBuilder setEngine(Engine engine);
 
-    void setTransmission(Transmission transmission);
+    CarSpecificBuilder setTransmission(Transmission transmission);
 
-    void setTripComputer(TripComputer tripComputer);
+    CarSpecificBuilder setTripComputer(TripComputer tripComputer);
 
-    void setGPSNavigator(GPSNavigator gpsNavigator);
+    CarSpecificBuilder setGpsNavigator(GPSNavigator gpsNavigator);
 }
