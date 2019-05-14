@@ -1,4 +1,4 @@
-package com.learn.patterns.abstractfactory.buttons;
+package com.learn.patterns.creational.abstractfactory.buttons;
 
 public class WinowsButton implements Button {
 

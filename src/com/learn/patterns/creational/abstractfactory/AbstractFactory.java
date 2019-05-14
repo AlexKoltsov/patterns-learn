@@ -1,8 +1,8 @@
-package com.learn.patterns.abstractfactory;
+package com.learn.patterns.creational.abstractfactory;
 
-import com.learn.patterns.abstractfactory.factories.GUIFactory;
-import com.learn.patterns.abstractfactory.factories.MacOSFactory;
-import com.learn.patterns.abstractfactory.factories.WindowsFactory;
+import com.learn.patterns.creational.abstractfactory.factories.GUIFactory;
+import com.learn.patterns.creational.abstractfactory.factories.MacOSFactory;
+import com.learn.patterns.creational.abstractfactory.factories.WindowsFactory;
 
 public class AbstractFactory {
 

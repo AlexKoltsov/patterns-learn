@@ -1,4 +1,4 @@
-package com.learn.patterns.factory.method.button;
+package com.learn.patterns.creational.method.button;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,6 +1,6 @@
-package com.learn.patterns.factory.method.factory;
+package com.learn.patterns.creational.method.factory;
 
-import com.learn.patterns.factory.method.button.Button;
+import com.learn.patterns.creational.method.button.Button;
 
 public abstract class Dialog {
 

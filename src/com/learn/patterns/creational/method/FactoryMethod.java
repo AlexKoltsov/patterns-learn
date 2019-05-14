@@ -1,8 +1,8 @@
-package com.learn.patterns.factory.method;
+package com.learn.patterns.creational.method;
 
-import com.learn.patterns.factory.method.factory.Dialog;
-import com.learn.patterns.factory.method.factory.HtmlDialog;
-import com.learn.patterns.factory.method.factory.WindowsDialog;
+import com.learn.patterns.creational.method.factory.Dialog;
+import com.learn.patterns.creational.method.factory.HtmlDialog;
+import com.learn.patterns.creational.method.factory.WindowsDialog;
 
 public class FactoryMethod {
 
